@@ -1,0 +1,18 @@
+from tkinter import Label, Tk
+import time
+
+window = Tk()
+label = Label(window, bg='blue', fg='#00FF00',font=('Bold',50) )
+
+label.pack()
+window.title('digital clock')
+window.geometry('240x100')
+window.resizable(1,1)
+label.grid(row=0,column=1)
+
+def digital_clock():
+    current_time=time.strftime('%H:%M:%S')
+    label.config(text=current_time)
+    label.after(999, digital_clock)
+digital_clock()
+window.mainloop()
